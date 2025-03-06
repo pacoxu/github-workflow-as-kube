@@ -282,7 +282,7 @@ jobs:
             json_payload="{ \"assignees\": [${ASSIGNEES_TO_ADD_STR}] }"
             REPO=${{ github.repository }}
             echo "$json_payload"
-            echo "$json_payload" | gh api -X PATCH /repos/$REPO/issues/{$PR_NUMBER} --input -
+            echo "$json_payload" | gh api -X PATCH /repos/{$REPO}/issues/{$PR_NUMBER} --input -
           fi
 
           if [[ -n "$ASSIGNEES_TO_REMOVE_STR" ]]; then
