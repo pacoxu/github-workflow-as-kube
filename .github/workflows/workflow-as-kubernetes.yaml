@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Remove lgtm label on new push
         run: |
@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Issue information
         run: |
@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Issue information
         run: |
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -77,6 +77,7 @@ jobs:
 
       - name: Handle Issue Comments
         run: |
+          gh version
           COMMENT_BODY=$(jq -r '.comment.body' $GITHUB_EVENT_PATH)
           PR_NUMBER=$(jq -r '.issue.number' $GITHUB_EVENT_PATH)
           COMMENT_USER=$(jq -r '.comment.user.login' $GITHUB_EVENT_PATH)
