@@ -278,7 +278,7 @@ jobs:
           fi
 
           if [[ -n "$ASSIGNEES_TO_ADD_STR" ]]; then
-            gh auth refresh -s project
+            gh auth refresh -s project -h github.com
             gh "$EVENT_TYPE" edit $PR_NUMBER --add-assignee "$ASSIGNEES_TO_ADD_STR"
           fi
 
